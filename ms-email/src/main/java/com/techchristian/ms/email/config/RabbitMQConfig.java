@@ -15,10 +15,12 @@ public class RabbitMQConfig {
     // * name queue
     @Bean
     public Queue emailQueue() {
+        System.out.println("created queue " + welcomeQueue);
         return new Queue(welcomeQueue, true);
     }
 
     // * convert messages (object) in Json
+    @Bean
     public Jackson2JsonMessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();
     }
