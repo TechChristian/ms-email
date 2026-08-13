@@ -1,4 +1,11 @@
 package com.techchristian.ms.email.dto;
 
-public class EmailCreateDto {
-}
+import java.util.UUID;
+
+public record EmailCreateDto (
+        UUID userId,
+        String emailFrom,
+        String emailTo,
+        String subject,
+        String text
+){ }
