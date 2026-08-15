@@ -1,4 +1,9 @@
 package com.techchristian.ms.user.dto;
 
-public class UserResponseDto {
-}
+import java.util.UUID;
+
+public record UserResponseDto(
+        UUID userId,
+        String email,
+        String name
+) { }
