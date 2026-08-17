@@ -7,6 +7,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
 @RequiredArgsConstructor
 public class UserProducer {
@@ -23,6 +25,6 @@ public class UserProducer {
         emailCreate.setSubject("Registration successful");
         emailCreate.setText(userModel.getName() + ", Welcome to the user!");
 
-        rabbitTemplate.convertAndSend(emailWelcome, emailCreate);
+        rabbitTemplate.convertAndSend("", emailWelcome, emailCreate);
     }
 }
