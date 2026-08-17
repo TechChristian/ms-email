@@ -2,11 +2,9 @@ package com.techchristian.ms.email.database.models;
 
 import com.techchristian.ms.email.database.enums.StatusEmail;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,7 +14,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-public class EmailModel {
+@Builder
+public class EmailModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID emailId;
