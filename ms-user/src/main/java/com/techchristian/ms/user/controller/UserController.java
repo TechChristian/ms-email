@@ -7,8 +7,6 @@ import com.techchristian.ms.user.mapper.UserMapper;
 import com.techchristian.ms.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +21,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponseDto> createUser (@Valid @RequestBody UserCreateDto dto){
+    public ResponseEntity<UserResponseDto> createUser (@RequestBody @Valid UserCreateDto dto){
         UserModel user = userService.addUser(dto);
 
         UserResponseDto response = UserMapper.toResponseDto(user);
