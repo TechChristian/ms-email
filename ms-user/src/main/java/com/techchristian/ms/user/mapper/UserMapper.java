@@ -6,8 +6,7 @@ import com.techchristian.ms.user.dto.UserResponseDto;
 
 public class UserMapper {
     public static UserModel toEntity(UserCreateDto dto){
-        UserModel userModel = new UserModel();
-        return userModel.builder()
+        return UserModel.builder()
                 .email(dto.email())
                 .name(dto.name())
                 .build();
